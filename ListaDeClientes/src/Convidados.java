@@ -10,8 +10,39 @@ public class Convidados {
     List<String> listaNoPay = new ArrayList<>();
 
     public void addList(String name){
-
         listaConvidados.add(name);
+    }
+
+    public Scanner getSc() {
+        return sc;
+    }
+
+    public void setSc(Scanner sc) {
+        this.sc = sc;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getListaConvidados(int indice) {
+            return this.listaConvidados.get(indice);
+    }
+
+    public void setListaConvidados(List<String> listaConvidados) {
+        this.listaConvidados = listaConvidados;
+    }
+
+    public List<String> getListaNoPay() {
+        return listaNoPay;
+    }
+
+    public void setListaNoPay(List<String> listaNoPay) {
+        this.listaNoPay = listaNoPay;
     }
 
     public void mainUses(){

@@ -19,7 +19,7 @@ public class Main {
 
             case 1:
                 System.out.println("Digite os nomes seguidos de enter (ou 'sair'):");
-                while(true) {
+                while (true) {
                     String name = sc.nextLine();
                     if (!Objects.equals(name, "sair")) {
                         convidados.addList(name);
@@ -31,19 +31,32 @@ public class Main {
 
 
             case 2:
-                System.out.println("Digite o número do convidado que vai sair da lista:");
-                int position = sc.nextInt();
-                sc.nextLine();
-                position = position - 1;
-                if(position > convidados.listaConvidados.size() || position < 1){
-                    System.out.println("Número inválido");
+
+                int numero = 0;
+                System.out.println("Digite o número entre 1 e " + convidados.listaConvidados.size() + ":");
+                String entrada = sc.nextLine();
+                if (Objects.equals(entrada, "sair")){
+                    break;
                 }
-                else {
-                    convidados.removeList(position);
+                while (true) {
+                    try {
+                        numero = Integer.parseInt(entrada);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Digite um número entre 1 e " + convidados.listaConvidados.size() + ":");
+                    }
+                    if (numero > 0 && numero <= convidados.listaConvidados.size()) {
+                        System.out.println("Convidado(a) " + convidados.getListaConvidados((numero - 1)) + " removido!");
+                        convidados.removeList((numero - 1));
+                        break;
+                    }
+                    else{
+                        System.out.println("Tente novamente");
+                        entrada = sc.nextLine();
+                    }
+                    if(Objects.equals(entrada, "sair")) break;
                 }
+
                 break;
-
-
             case 3:
                 System.out.println("Lista completa de convidados:");
                 int contador = 1;
