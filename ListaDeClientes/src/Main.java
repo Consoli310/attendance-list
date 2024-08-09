@@ -22,7 +22,8 @@ public class Main {
             }
             if(choice >= 1 && choice <= 5){
                 break;
-            }else{
+            }
+            else{
                 System.out.println("Escolha uma opção entre 1 e 5");
                 entrada = sc.nextLine();
             }
