@@ -1,6 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Convidados {
 
@@ -69,16 +67,56 @@ public class Convidados {
 
     public void calcExcedentes() {
         System.out.println("O pacote da festa é para quantos convidados?");
-        int totalConvidadosPacote = sc.nextInt();
-        sc.nextLine();
-        int valor = 0;
+        String entrada = sc.nextLine();
+        int totalConvidadosPacote = 0;
+        while(true){
+            if (Objects.equals(entrada, "sair")){
+                break;
+            }
+            try {
+                totalConvidadosPacote = Integer.parseInt(entrada);
+            }
+            catch(NumberFormatException e) {
+                System.out.println("Valor inválido, tente novamente:");
+                entrada = sc.nextLine();
+            }
+                if(totalConvidadosPacote > 0){
+                    break;
+                }
+                else{
+                    System.out.println("Valor inválido, tente novamente:");
+                    entrada = sc.nextLine();
+                }
+            }
 
+        System.out.println("Qual o valorTotal para cada excedente?");
+        entrada = sc.nextLine();
+        double valorTotal = 0;
+        double valorExcedentes = 0;
+        while(true){
+            if (Objects.equals(entrada, "sair")){
+                break;
+            }
+            try{
+                valorExcedentes = Integer.parseInt(entrada);
+            }catch(NumberFormatException e){
+                System.out.println("Valor inválido, tente novamente:");
+                entrada = sc.nextLine();
+            }
+            if(valorExcedentes > 0){
+                break;
+            }
+            else{
+                System.out.println("Valor inválido, tente novamente:");
+                entrada = sc.nextLine();
+            }
+        }
         if (totalPagantes() > totalConvidadosPacote) {
-            valor = (totalPagantes() - totalConvidadosPacote) * 55;
+            valorTotal = (totalPagantes() - totalConvidadosPacote) * valorExcedentes;
             System.out.println("Número de excedentes = " + (totalPagantes() - totalConvidadosPacote));
-            System.out.println("Valor a ser pago: " + valor);
+            System.out.println(" -> -> -> Valor a ser pago: R$" + String.format("%.2f", valorTotal));
         }else {
-            System.out.println("Não há excedentes");
+            System.out.println("-> -> -> Não há excedentes");
         }
     }
 

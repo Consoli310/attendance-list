@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -12,10 +10,25 @@ public class Main {
 
        while(true){
         convidados.mainUses();
-        int x = sc.nextInt();
-        sc.nextLine();
+        String entrada = sc.nextLine();
+        int choice = 0;
 
-        switch (x) {
+        while(true){
+            try{
+                choice = Integer.parseInt(entrada);
+            }catch(NumberFormatException e){
+                System.out.println("Escolha uma opção entre 1 e 5");
+                entrada = sc.nextLine();
+            }
+            if(choice >= 1 && choice <= 5){
+                break;
+            }else{
+                System.out.println("Escolha uma opção entre 1 e 5");
+                entrada = sc.nextLine();
+            }
+        }
+
+        switch (choice) {
 
             case 1:
                 System.out.println("Digite os nomes seguidos de enter (ou 'sair'):");
@@ -34,13 +47,13 @@ public class Main {
 
                 int numero = 0;
                 System.out.println("Digite o número entre 1 e " + convidados.listaConvidados.size() + ":");
-                String entrada = sc.nextLine();
-                if (Objects.equals(entrada, "sair")){
+                String escolha = sc.nextLine();
+                if (Objects.equals(escolha, "sair")){
                     break;
                 }
                 while (true) {
                     try {
-                        numero = Integer.parseInt(entrada);
+                        numero = Integer.parseInt(escolha);
                     } catch (NumberFormatException e) {
                         System.out.println("Digite um número entre 1 e " + convidados.listaConvidados.size() + ":");
                     }
@@ -60,8 +73,8 @@ public class Main {
             case 3:
                 System.out.println("Lista completa de convidados:");
                 int contador = 1;
-                for (String y : convidados.listaConvidados) {
-                    System.out.println(contador + " - " + y);
+                for (String name : convidados.listaConvidados) {
+                    System.out.println("||||  " + contador + " - " + name);
                     contador += 1;
                 }
                 break;
@@ -72,7 +85,7 @@ public class Main {
                 int contador2 = 1;
                 convidados.noPay();
                 for(String name : convidados.listaNoPay){
-                    System.out.println(contador2 + " - " + name);
+                    System.out.println("||||  " + contador2 + " - " + name);
                     contador2 += 1;
                 }
 
