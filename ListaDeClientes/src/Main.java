@@ -18,15 +18,13 @@ public class Main {
                 try {
                     choice = Integer.parseInt(entrada);
                 } catch (NumberFormatException e) {
-                    convidados.clearConsole();
+                    Convidados.clearConsole();
                     System.out.println("Você não digitou um número");
                 }
-                if (choice > 5 || choice < 0) {
-                    convidados.clearConsole();
+                if (choice > 5 || choice < 1) {
+                    Convidados.clearConsole();
                     System.out.println("Digite um número entre 1 a 5");
-                    break;
-                }
-                if (choice < 5 && choice > 0) {
+                }else{
                     break;
                 }
             }
@@ -43,14 +41,14 @@ public class Main {
                             break;
                         }
                     }
-                    convidados.clearConsole();
+                    Convidados.clearConsole();
                     break;
 
 
                 case 2:
                     while (true) {
                         int choiceInt = 0;
-                        System.out.println("Digite o número entre 1 e " + convidados.listaConvidados.size() + ":");
+                        System.out.println("Digite o número entre 1 e " + convidados.getListaConvidados().size() + ":");
                         String escolha = sc.nextLine();
                         if (Objects.equals(escolha, "sair")) {
                             break;
@@ -58,31 +56,31 @@ public class Main {
                         try {
                             choiceInt = Integer.parseInt(escolha);
                         } catch (NumberFormatException e) {
-                            convidados.clearConsole();
+                            Convidados.clearConsole();
                             System.out.println("Você não digitou um número");
                         }
-                        if (choiceInt > convidados.listaConvidados.size() || choiceInt < 0) {
-                            convidados.clearConsole();
+                        if (choiceInt > convidados.getListaConvidados().size() || choiceInt < 0) {
+                            Convidados.clearConsole();
                             System.out.println("Você não digitou um número válido");
                         }
-                        if (choiceInt > 0 && choiceInt <= convidados.listaConvidados.size()) {
+                        if (choiceInt > 0 && choiceInt <= convidados.getListaConvidados().size()) {
                             String guest = convidados.getListaConvidados((choiceInt - 1));
                             convidados.removeList((choiceInt - 1));
-                            convidados.clearConsole();
+                            Convidados.clearConsole();
                             System.out.println(guest + " foi removido.");
                             break;
                         }
                     }
                     break;
                 case 3:
-                    convidados.clearConsole();
-                    if(convidados.listaConvidados.size() == 0){
+                    Convidados.clearConsole();
+                    if (convidados.getListaConvidados().isEmpty()) {
                         System.out.println("A lista está vazia.");
                         break;
                     }
                     System.out.println("Lista completa de convidados:");
                     int contador = 1;
-                    for (String name : convidados.listaConvidados) {
+                    for (String name : convidados.getListaConvidados()) {
                         System.out.println("||||  " + contador + " - " + name);
                         contador += 1;
                     }
@@ -90,11 +88,15 @@ public class Main {
 
 
                 case 4:
-                    convidados.clearConsole();
+                    Convidados.clearConsole();
+                    if (convidados.getListaNoPay().isEmpty()) {
+                        System.out.println("A lista está vazia.");
+                        break;
+                    }
                     System.out.println("Lista menores de 5 anos: ");
                     int contador2 = 1;
                     convidados.noPay();
-                    for (String name : convidados.listaNoPay) {
+                    for (String name : convidados.getListaNoPay()) {
                         System.out.println("||||  " + contador2 + " - " + name);
                         contador2 += 1;
                     }
@@ -104,7 +106,9 @@ public class Main {
                 case 5:
                     convidados.calcExcedentes();
                     break;
+
             }
+
         }
     }
 }

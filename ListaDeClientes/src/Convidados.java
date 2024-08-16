@@ -3,9 +3,9 @@ import java.util.*;
 public class Convidados {
 
     Scanner sc = new Scanner(System.in);
-    String name;
-    List<String> listaConvidados = new ArrayList<>();
-    List<String> listaNoPay = new ArrayList<>();
+    private String name;
+    private List<String> listaConvidados = new ArrayList<>();
+   private List<String> listaNoPay = new ArrayList<>();
 
     public void addList(String name) {
         listaConvidados.add(name);
@@ -30,18 +30,15 @@ public class Convidados {
     public String getListaConvidados(int indice) {
         return this.listaConvidados.get(indice);
     }
-
-    public void setListaConvidados(List<String> listaConvidados) {
-        this.listaConvidados = listaConvidados;
+    public List<String> getListaConvidados(){
+        return this.listaConvidados;
     }
+
 
     public List<String> getListaNoPay() {
         return listaNoPay;
     }
 
-    public void setListaNoPay(List<String> listaNoPay) {
-        this.listaNoPay = listaNoPay;
-    }
 
     public void mainUses() {
         System.out.println("**********************************");
