@@ -24,7 +24,7 @@ public class Main {
                 if (choice > 5 || choice < 1) {
                     Convidados.clearConsole();
                     System.out.println("Digite um número entre 1 a 5");
-                }else{
+                } else {
                     break;
                 }
             }
@@ -89,16 +89,16 @@ public class Main {
 
                 case 4:
                     Convidados.clearConsole();
+                    convidados.noPay();
                     if (convidados.getListaNoPay().isEmpty()) {
                         System.out.println("A lista está vazia.");
                         break;
                     }
                     System.out.println("Lista menores de 5 anos: ");
-                    int contador2 = 1;
-                    convidados.noPay();
+                    contador = 1;
                     for (String name : convidados.getListaNoPay()) {
-                        System.out.println("||||  " + contador2 + " - " + name);
-                        contador2 += 1;
+                        System.out.println("||||  " + contador + " - " + name);
+                        contador += 1;
                     }
 
                     break;

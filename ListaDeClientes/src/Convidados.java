@@ -5,7 +5,7 @@ public class Convidados {
     Scanner sc = new Scanner(System.in);
     private String name;
     private List<String> listaConvidados = new ArrayList<>();
-   private List<String> listaNoPay = new ArrayList<>();
+    private List<String> listaNoPay = new ArrayList<>();
 
     public void addList(String name) {
         listaConvidados.add(name);
@@ -30,7 +30,8 @@ public class Convidados {
     public String getListaConvidados(int indice) {
         return this.listaConvidados.get(indice);
     }
-    public List<String> getListaConvidados(){
+
+    public List<String> getListaConvidados() {
         return this.listaConvidados;
     }
 
