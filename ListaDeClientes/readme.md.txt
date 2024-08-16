@@ -1,3 +1,5 @@
+**É extremamente recomendado o uso de um terminal compatível com ANSI Escape Code**
+
 Como usar:
 
 Ao iniciar o aplicativo, escolha uma opção entre os números 1 e 5, cada um
