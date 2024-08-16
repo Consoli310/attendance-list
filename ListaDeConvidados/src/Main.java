@@ -16,7 +16,13 @@ public class Main {
                 functions.mainUses();
                 String entry = sc.nextLine();
                 if (Objects.equals(entry, "EXIT")) {
-                    System.exit(0);
+                    System.out.println("Tem certeza que deseja encerrar o programa? (s/n)");
+                    String exit = sc.nextLine();
+                    if(Objects.equals(exit,"s")){
+                        System.exit(0);
+                    }else{
+                        Functions.clearConsole();
+                    }
                 }
                 try {
                     choice = Integer.parseInt(entry);
