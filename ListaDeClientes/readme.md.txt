@@ -43,3 +43,9 @@ total de 5 excedentes, pois a festa contém 55 convidados pagantes para um pacot
 Neste caso, você deve informar o valor que será cobrado para cada pessoa excedente, se pegarmos este 
 exemplo e considerarmos um valor de 50 reais para cada excedentes, teriamos um valor total de 250 reais
 à serem pagos por excedentes.
+
+EXIT - Sair do programa:
+
+Para sair do programa, basta estar no menu inicial e digitar com letras miúsculas "EXIT", e o programa
+será finalizar. Está opção não está visível por questões de segurança, pois uma vez que o programa é fechado
+todos os dados serão perdidos.

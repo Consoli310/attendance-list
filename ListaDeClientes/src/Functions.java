@@ -1,14 +1,16 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
-public class Convidados {
-
+public class Functions {
     Scanner sc = new Scanner(System.in);
     private String name;
-    private List<String> listaConvidados = new ArrayList<>();
-    private List<String> listaNoPay = new ArrayList<>();
+    private List<String> guestsList = new ArrayList<>();
+    private List<String> noPayList = new ArrayList<>();
 
     public void addList(String name) {
-        listaConvidados.add(name);
+        guestsList.add(name);
     }
 
     public Scanner getSc() {
@@ -27,17 +29,17 @@ public class Convidados {
         this.name = name;
     }
 
-    public String getListaConvidados(int indice) {
-        return this.listaConvidados.get(indice);
+    public String getGuestsList(int indice) {
+        return this.guestsList.get(indice);
     }
 
-    public List<String> getListaConvidados() {
-        return this.listaConvidados;
+    public List<String> getGuestsList() {
+        return this.guestsList;
     }
 
 
-    public List<String> getListaNoPay() {
-        return listaNoPay;
+    public List<String> getNoPayList() {
+        return noPayList;
     }
 
 
@@ -52,18 +54,19 @@ public class Convidados {
     }
 
     public void removeList(int position) {
-        this.listaConvidados.remove(position);
+        this.guestsList.remove(position);
     }
 
-    public void noPay() {
-        for (String x : this.listaConvidados) {
+    public void noPayListAdd() {
+        for (String x : this.guestsList) {
             if (x.contains("-5")) {
-                this.listaNoPay.add(x);
+                this.noPayList.add(x);
             }
         }
     }
 
-    public void calcExcedentes() {
+
+    public void surplusCalc() {
         System.out.println("O pacote da festa é para quantos convidados?");
         String entrada = sc.nextLine();
         int totalConvidadosPacote = 0;
@@ -121,6 +124,6 @@ public class Convidados {
     }
 
     public int totalPagantes() {
-        return listaConvidados.size() - listaNoPay.size();
+        return guestsList.size() - noPayList.size();
     }
 }
