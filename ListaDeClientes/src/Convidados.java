@@ -7,7 +7,7 @@ public class Convidados {
     List<String> listaConvidados = new ArrayList<>();
     List<String> listaNoPay = new ArrayList<>();
 
-    public void addList(String name){
+    public void addList(String name) {
         listaConvidados.add(name);
     }
 
@@ -28,7 +28,7 @@ public class Convidados {
     }
 
     public String getListaConvidados(int indice) {
-            return this.listaConvidados.get(indice);
+        return this.listaConvidados.get(indice);
     }
 
     public void setListaConvidados(List<String> listaConvidados) {
@@ -43,7 +43,7 @@ public class Convidados {
         this.listaNoPay = listaNoPay;
     }
 
-    public void mainUses(){
+    public void mainUses() {
         System.out.println("**********************************");
         System.out.println("1 - Adicionar convidados");
         System.out.println("2 - Remover convidados");
@@ -53,13 +53,13 @@ public class Convidados {
         System.out.println("**********************************");
     }
 
-    public void removeList(int position){
+    public void removeList(int position) {
         this.listaConvidados.remove(position);
     }
 
-    public void noPay(){
-        for(String x : this.listaConvidados){
-            if (x.contains("-5")){
+    public void noPay() {
+        for (String x : this.listaConvidados) {
+            if (x.contains("-5")) {
                 this.listaNoPay.add(x);
             }
         }
@@ -69,44 +69,41 @@ public class Convidados {
         System.out.println("O pacote da festa é para quantos convidados?");
         String entrada = sc.nextLine();
         int totalConvidadosPacote = 0;
-        while(true){
-            if (Objects.equals(entrada, "sair")){
+        while (true) {
+            if (Objects.equals(entrada, "sair")) {
                 break;
             }
             try {
                 totalConvidadosPacote = Integer.parseInt(entrada);
-            }
-            catch(NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 System.out.println("Valor inválido, tente novamente:");
                 entrada = sc.nextLine();
             }
-                if(totalConvidadosPacote > 0){
-                    break;
-                }
-                else{
-                    System.out.println("Valor inválido, tente novamente:");
-                    entrada = sc.nextLine();
-                }
+            if (totalConvidadosPacote > 0) {
+                break;
+            } else {
+                System.out.println("Valor inválido, tente novamente:");
+                entrada = sc.nextLine();
             }
+        }
 
         System.out.println("Qual o valorTotal para cada excedente?");
         entrada = sc.nextLine();
         double valorTotal = 0;
         double valorExcedentes = 0;
-        while(true){
-            if (Objects.equals(entrada, "sair")){
+        while (true) {
+            if (Objects.equals(entrada, "sair")) {
                 break;
             }
-            try{
+            try {
                 valorExcedentes = Integer.parseInt(entrada);
-            }catch(NumberFormatException e){
+            } catch (NumberFormatException e) {
                 System.out.println("Valor inválido, tente novamente:");
                 entrada = sc.nextLine();
             }
-            if(valorExcedentes > 0){
+            if (valorExcedentes > 0) {
                 break;
-            }
-            else{
+            } else {
                 System.out.println("Valor inválido, tente novamente:");
                 entrada = sc.nextLine();
             }
@@ -115,12 +112,17 @@ public class Convidados {
             valorTotal = (totalPagantes() - totalConvidadosPacote) * valorExcedentes;
             System.out.println("Número de excedentes = " + (totalPagantes() - totalConvidadosPacote));
             System.out.println(" -> -> -> Valor a ser pago: R$" + String.format("%.2f", valorTotal));
-        }else {
+        } else {
             System.out.println("-> -> -> Não há excedentes");
         }
     }
 
-    public int totalPagantes(){
+    static void clearConsole() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public int totalPagantes() {
         return listaConvidados.size() - listaNoPay.size();
     }
 }
