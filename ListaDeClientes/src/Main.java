@@ -8,26 +8,26 @@ public class Main {
        Convidados convidados = new Convidados();
 
 
-       while(true){
-        convidados.mainUses();
-        String entrada = sc.nextLine();
-        int choice = 0;
+       while(true) {
 
-        while(true){
-            try{
-                choice = Integer.parseInt(entrada);
-            }catch(NumberFormatException e){
-                System.out.println("Escolha uma opção entre 1 e 5");
-                entrada = sc.nextLine();
-            }
-            if(choice >= 1 && choice <= 5){
-                break;
-            }
-            else{
-                System.out.println("Escolha uma opção entre 1 e 5");
-                entrada = sc.nextLine();
-            }
-        }
+           int choice = 0;
+
+           while(true) {
+               convidados.mainUses();
+               String entrada = sc.nextLine();
+               try {
+                   choice = Integer.parseInt(entrada);
+               } catch (NumberFormatException e) {
+                   System.out.println("Você não digitou um número");
+               }
+               if (choice > 5 || choice < 0) {
+                   System.out.println("Digite um número entre 1 a 5");
+                   break;
+               }
+               if(choice < 5 && choice > 0){
+                   break;
+               }
+           }
 
         switch (choice) {
 
@@ -45,32 +45,28 @@ public class Main {
 
 
             case 2:
-
-                int numero = 0;
-                System.out.println("Digite o número entre 1 e " + convidados.listaConvidados.size() + ":");
-                String escolha = sc.nextLine();
-                if (Objects.equals(escolha, "sair")){
-                    break;
-                }
-                while (true) {
-                    try {
-                        numero = Integer.parseInt(escolha);
-                    } catch (NumberFormatException e) {
-                        System.out.println("Digite um número entre 1 e " + convidados.listaConvidados.size() + ":");
-                    }
-                    if (numero > 0 && numero <= convidados.listaConvidados.size()) {
-                        System.out.println("Convidado(a) " + convidados.getListaConvidados((numero - 1)) + " removido!");
-                        convidados.removeList((numero - 1));
+                while(true) {
+                    int choiceInt = 0;
+                    System.out.println("Digite o número entre 1 e " + convidados.listaConvidados.size() + ":");
+                    String escolha = sc.nextLine();
+                    if (Objects.equals(escolha, "sair")) {
                         break;
                     }
-                    else{
-                        System.out.println("Tente novamente");
-                        entrada = sc.nextLine();
+                    try {
+                        choiceInt = Integer.parseInt(escolha);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Você não digitou um número");
                     }
-                    if(Objects.equals(entrada, "sair")) break;
+                    if (choiceInt > convidados.listaConvidados.size() || choiceInt < 0) {
+                        System.out.println("Você não digitou um número válido");
+                    }
+                    if(choiceInt > 0 && choiceInt <= convidados.listaConvidados.size()){
+                        String guest = convidados.getListaConvidados((choiceInt - 1));
+                        convidados.removeList((choiceInt - 1));
+                        System.out.println(guest + " foi removido.");
+                        break;
+                    }
                 }
-
-                break;
             case 3:
                 System.out.println("Lista completa de convidados:");
                 int contador = 1;
