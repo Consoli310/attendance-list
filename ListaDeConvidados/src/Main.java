@@ -113,7 +113,7 @@ public class Main {
                         System.out.println("A lista está vazia.");
                         break;
                     }
-                    System.out.println("Lista menores de 5 anos: ");
+                    System.out.println("Lista 'não pagantes': ");
                     count = 1;
                     for (String name : functions.getNoPayList()) {
                         System.out.println("-->  " + count + " - " + name);
