@@ -1,3 +1,4 @@
+import javax.print.attribute.standard.NumberOfInterveningJobs;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -18,9 +19,9 @@ public class Main {
                 if (Objects.equals(entry, "EXIT")) {
                     System.out.println("Tem certeza que deseja encerrar o programa? (s/n)");
                     String exit = sc.nextLine();
-                    if(Objects.equals(exit,"s")){
+                    if (Objects.equals(exit, "s")) {
                         System.exit(0);
-                    }else{
+                    } else {
                         Functions.clearConsole();
                     }
                 }
@@ -55,11 +56,11 @@ public class Main {
                     Functions.clearConsole();
                     break;
 
-
                 case 2:
                     while (true) {
+                        Functions.clearConsole();
                         int choiceInt = 0;
-                        System.out.println("Digite o número entre 1 e " + functions.getGuestsList().size() + ":");
+                        System.out.println("Digite o número do convidado a ser removido(ou 'sair')");
                         String escolha = sc.nextLine();
                         if (Objects.equals(escolha, "sair")) {
                             Functions.clearConsole();
@@ -84,6 +85,7 @@ public class Main {
                         }
                     }
                     break;
+
                 case 3:
                     Functions.clearConsole();
                     if (functions.getGuestsList().isEmpty()) {
@@ -97,7 +99,6 @@ public class Main {
                         count += 1;
                     }
                     break;
-
 
                 case 4:
                     Functions.clearConsole();
@@ -115,7 +116,45 @@ public class Main {
                     break;
 
                 case 5:
-                    functions.surplusCalc();
+                    Functions.clearConsole();
+                    int guestPackage = 0;
+                    String entry = "";
+                    System.out.println("O pacote da festa é para quantos convidados? (sair)");
+                    entry = sc.nextLine();
+                    if (entry.equalsIgnoreCase("sair")) {
+                        break;
+                    }
+                    while (true) {
+                        try {
+                            guestPackage = Integer.parseInt(entry);
+                            break;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Digite um valor válido");
+                            entry = sc.nextLine();
+                        }
+                    }
+
+                    while (true) {
+
+                        if (functions.isSurplus(guestPackage)) {
+                            System.out.println("Qual o valor para cada excedente? (sair)");
+                            entry = sc.nextLine();
+                            if (entry.equalsIgnoreCase("sair")) {
+                                break;
+                            }
+                            try {
+                                double surplusValue = Double.parseDouble(entry);
+                                System.out.println("Valor total em excedentes R$" + functions.surplusCalc(guestPackage, surplusValue));
+                                break;
+                            } catch (NumberFormatException e) {
+                                System.out.println("Digite um valor válido");
+                            }
+                        } else {
+                            Functions.clearConsole();
+                            System.out.println("Não há excedentes.");
+                            break;
+                        }
+                    }
                     break;
 
             }

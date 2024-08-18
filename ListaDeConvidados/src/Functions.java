@@ -59,63 +59,21 @@ public class Functions {
 
     public void noPayListAdd() {
         for (String x : this.guestsList) {
-            if (x.contains("-5")) {
+            if (x.contains("-")) {
                 this.noPayList.add(x);
             }
         }
     }
-
-
-    public void surplusCalc() {
-        System.out.println("O pacote da festa é para quantos convidados?");
-        String entrada = sc.nextLine();
-        int totalConvidadosPacote = 0;
-        while (true) {
-            if (Objects.equals(entrada, "sair")) {
-                break;
-            }
-            try {
-                totalConvidadosPacote = Integer.parseInt(entrada);
-            } catch (NumberFormatException e) {
-                System.out.println("Valor inválido, tente novamente:");
-                entrada = sc.nextLine();
-            }
-            if (totalConvidadosPacote > 0) {
-                break;
-            } else {
-                System.out.println("Valor inválido, tente novamente:");
-                entrada = sc.nextLine();
-            }
+    public boolean isSurplus(int guestPackage){
+        if (guestsList.size() - noPayList.size()  > guestPackage){
+            return true;
+        }else{
+            return false;
         }
+    }
 
-        System.out.println("Qual o valorTotal para cada excedente?");
-        entrada = sc.nextLine();
-        double valorTotal = 0;
-        double valorExcedentes = 0;
-        while (true) {
-            if (Objects.equals(entrada, "sair")) {
-                break;
-            }
-            try {
-                valorExcedentes = Integer.parseInt(entrada);
-            } catch (NumberFormatException e) {
-                System.out.println("Valor inválido, tente novamente:");
-                entrada = sc.nextLine();
-            }
-            if (valorExcedentes > 0) {
-                break;
-            } else {
-                System.out.println("Valor inválido, tente novamente:");
-                entrada = sc.nextLine();
-            }
-        }
-        if (totalPagantes() > totalConvidadosPacote) {
-            valorTotal = (totalPagantes() - totalConvidadosPacote) * valorExcedentes;
-            System.out.println("Número de excedentes = " + (totalPagantes() - totalConvidadosPacote));
-            System.out.println(" -> -> -> Valor a ser pago: R$" + String.format("%.2f", valorTotal));
-        } else {
-            System.out.println("-> -> -> Não há excedentes");
-        }
+    public double surplusCalc(int guestPackage, double surplusValue){
+        return (payersNumber() - guestPackage) * surplusValue;
     }
 
     static void clearConsole() {
@@ -123,7 +81,7 @@ public class Functions {
         System.out.flush();
     }
 
-    public int totalPagantes() {
+    public int payersNumber() {
         return guestsList.size() - noPayList.size();
     }
 }

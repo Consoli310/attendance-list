@@ -9,7 +9,7 @@ com sua função específica.
 
 Ao selecionar esta opção, basta escrever quantos nomes quiser, com um "enter"
 entre cada nome digitado. Caso o convidado seja um Não pagante(não conta na
-lista), basta adicionar "-5" no nome, seja antes, depois, com ou sem espaço.
+lista), basta adicionar o simbolo de menos ("-") no nome, seja antes, depois, com ou sem espaço.
 
 2 - Remover convidados da lista:
 
