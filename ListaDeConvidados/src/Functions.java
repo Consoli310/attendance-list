@@ -43,16 +43,6 @@ public class Functions {
     }
 
 
-    public void mainUses() {
-        System.out.println("**********************************");
-        System.out.println("1 - Adicionar convidados");
-        System.out.println("2 - Remover convidados");
-        System.out.println("3 - Ver lista completa");
-        System.out.println("4 - Ver lista não pagantes");
-        System.out.println("5 - Calcular excedentes");
-        System.out.println("**********************************");
-    }
-
     public void removeList(int position) {
         this.guestsList.remove(position);
     }

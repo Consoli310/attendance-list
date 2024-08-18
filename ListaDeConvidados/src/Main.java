@@ -14,8 +14,15 @@ public class Main {
             int choice = 0;
 
             while (true) {
-                functions.mainUses();
+                System.out.println("**********************************");
+                System.out.println("1 - Adicionar convidados");
+                System.out.println("2 - Remover convidados");
+                System.out.println("3 - Ver lista completa");
+                System.out.println("4 - Ver lista não pagantes");
+                System.out.println("5 - Calcular excedentes");
+                System.out.println("**********************************");
                 String entry = sc.nextLine();
+
                 if (Objects.equals(entry, "EXIT")) {
                     System.out.println("Tem certeza que deseja encerrar o programa? (s/n)");
                     String exit = sc.nextLine();
@@ -95,7 +102,7 @@ public class Main {
                     System.out.println("Lista completa de convidados:");
                     int count = 1;
                     for (String name : functions.getGuestsList()) {
-                        System.out.println("||||  " + count + " - " + name);
+                        System.out.println("-->  " + count + " - " + name);
                         count += 1;
                     }
                     break;
@@ -109,7 +116,7 @@ public class Main {
                     System.out.println("Lista menores de 5 anos: ");
                     count = 1;
                     for (String name : functions.getNoPayList()) {
-                        System.out.println("||||  " + count + " - " + name);
+                        System.out.println("-->  " + count + " - " + name);
                         count += 1;
                     }
 
@@ -122,6 +129,7 @@ public class Main {
                     System.out.println("O pacote da festa é para quantos convidados? (sair)");
                     entry = sc.nextLine();
                     if (entry.equalsIgnoreCase("sair")) {
+                        Functions.clearConsole();
                         break;
                     }
                     while (true) {
@@ -129,6 +137,7 @@ public class Main {
                             guestPackage = Integer.parseInt(entry);
                             break;
                         } catch (NumberFormatException e) {
+                            Functions.clearConsole();
                             System.out.println("Digite um valor válido");
                             entry = sc.nextLine();
                         }
@@ -137,19 +146,24 @@ public class Main {
                     while (true) {
 
                         if (functions.isSurplus(guestPackage)) {
+                            Functions.clearConsole();
                             System.out.println("Qual o valor para cada excedente? (sair)");
                             entry = sc.nextLine();
                             if (entry.equalsIgnoreCase("sair")) {
+                                Functions.clearConsole();
                                 break;
                             }
                             try {
                                 double surplusValue = Double.parseDouble(entry);
+                                Functions.clearConsole();
                                 System.out.println("Valor total em excedentes R$" + functions.surplusCalc(guestPackage, surplusValue));
                                 break;
                             } catch (NumberFormatException e) {
+                                Functions.clearConsole();
                                 System.out.println("Digite um valor válido");
                             }
                         } else {
+                            Functions.clearConsole();
                             Functions.clearConsole();
                             System.out.println("Não há excedentes.");
                             break;
