@@ -8,6 +8,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         Functions functions = new Functions();
 
+        Functions.clearConsole();
 
         while (true) {
 
@@ -20,6 +21,7 @@ public class Main {
                 System.out.println("3 - View complete list");
                 System.out.println("4 - View non-paying list");
                 System.out.println("5 - Calculate surplus guests");
+                System.out.println("'EXIT' to exit the program");
                 System.out.println("**********************************");
                 String entry = sc.nextLine();
 

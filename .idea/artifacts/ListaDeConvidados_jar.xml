@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="attendance-list:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/attendance_list_jar</output-path>
+  <artifact type="jar" name="ListaDeConvidados:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ListaDeConvidados_jar</output-path>
     <root id="archive" name="ListaDeConvidados.jar">
       <element id="module-output" name="ListaDeConvidados" />
     </root>
