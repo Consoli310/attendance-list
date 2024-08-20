@@ -1,63 +1,35 @@
-**É extremamente recomendado o uso de um terminal compatível com ANSI Escape Code**
+It is highly recommended to use a terminal compatible with ANSI Escape Codes
 
-Resumo:
+Summary:
 
-Este programa é um sistema para controle de presença de um evento, podendo adicionar pessoas
-(sendo elas "pagantes" ou "não pagantes"), remover pessoas, ver lista completa, ver lista "não pagantes",
-e calcular um valor a ser pago em excedentes dado um número para o pacote da festa e o valor para cada
-pessoa excedida do pacote.
+This program is a system for managing the attendance of an event, allowing you to add people (either "paying" or "non-paying"), remove people, view the complete list, view the "non-paying" list, and calculate a cost for excess guests given a number for the party package and the cost per each excess guest.
 
+How to use:
 
-Como usar:
+Upon starting the application, choose an option between numbers 1 and 5, each with its specific function.
 
-Ao iniciar o aplicativo, escolha uma opção entre os números 1 e 5, cada um
-com sua função específica.
+1 - Add guests to the list:
 
-1 - Adicionar convidados na lista:
+When selecting this option, simply type as many names as you want, pressing "enter" after each name. If a guest is a "non-paying" guest (not counted in the list), just add a minus sign (-) to the name, either before, after, with or without space. To stop adding guests, type "exit" to return to the main menu.
 
-Ao selecionar esta opção, basta escrever quantos nomes quiser, com um "enter"
-entre cada nome digitado. Caso o convidado seja um "não pagante" (não conta na
-lista), basta adicionar o simbolo de menos (-) no nome, seja antes, depois, com ou sem espaço.
-Para parar de adicionar convidados, digite "sair", assim voltará ao menu inicial.
+2 - Remove guests from the list:
 
-2 - Remover convidados da lista:
+When selecting this option, you will need to specify which guest from the list will be removed based on their number in the list. It is recommended to use option 3 (show complete list) to identify the number of the guest to be removed before starting the removal. To cancel the removal, simply type "exit" to return to the main menu.
 
-Ao selecionar esta opção, você terá que informar qual cliente da lista será 
-removido a partir de seu número na lista. É recomendado utilizar a função 3 
-(mostrar lista completa) para identificar a numeração do convidado que será
-retirado antes de iniciar a remoção. Para cancelar a remoção, basta digitar "sair",
-assim voltará ao menu inicial.
+3 - Show complete list:
 
-3 - Mostrar lista completa:
+When selecting this option, the complete guest list will be displayed on the screen in a numbered format, making it easier to count the total number.
 
-Ao selecionar esta opção, a lista completa de convidados será mostrada na tela de forma enumerada,
-para facilitar na contagem total.
+4 - Show non-paying guests list:
 
-4 - Mostrar lista não pagantes:
+When selecting this option, only the "non-paying" guests (those added with "-" in the name) will be shown, and this list will also be numbered.
 
-Ao selecionar esta opção, a lista apenas dos "não pagantes" (os que foram adicionador com "-" no nome) 
-será mostrada, esta lista também estará enumerada.
+5 - Calculate excess guests:
 
-5 - Calcular excedentes:
+When selecting this option, you will need to provide the number of guests for the party package and then specify the cost for each person exceeding the package number. In this calculation, non-paying guests are not counted towards the total number of guests. For example, if the list has 20 total guests, with 5 being non-paying, and you specify that the party package is for 15 guests, it will be considered as 0 excess guests, as the number of "paying" guests totals 15, not exceeding the package.
+An example where the excess would be calculated: if the party has a total of 60 guests on the list, with only 5 non-paying, and you specify that the party package is for 50 guests, this will result in a total of 5 excess guests, as the party has 55 "paying" guests for a 50-person package. In this case, you should specify the cost for each excess guest. For instance, if we assume a cost of 50 reais per excess guest, the total amount to be paid for excess guests would be 250 reais.
+At any point after selecting the option to calculate excess guests, you can type "exit" to return to the main menu.
 
-Ao selecionar esta opção, você deverá informar qual o número de convidados do pacote da festa, e logo
-em seguida informar qual o valor será cobrado para cada pessoa que excedeu o número do pacote. Neste
-cálculo os convidados não pagantes não entram na contagem de total de convidados. Por exemplo, caso
-na listagem contenham 20 pessoas totais, sendo elas 5 "não pagantes", ao informar para o programa que o 
-pacote da festa é de 15 pessoas, então considerará como 0 excedentes, pois o número de "pagantes" 
-resultou em um total de 15, não excedendo o pacote.
-Um exemplo onde o excedente seria calculado: a festa está com um total de 60 pessoas na lista, sendo
-apenas 5 não pagantes, ao informar o aplicativo que o pacote da festa é para 50 pessoas, isso resultará
-num total de 5 excedentes, pois a festa contém 55 convidados "pagantes" para um pacote de 50 pessoas.
-Neste caso, você deve informar o valor que será cobrado para cada pessoa excedente, se pegarmos este 
-exemplo e considerarmos um valor de 50 reais para cada excedente, teriamos um valor total de 250 reais
-à serem pagos por excedentes.
-Em qualquer momento do processo após selecionar a opção de Calcular excedentes, é possivel digitar
-"sair", dessa forma o programa voltará ao menu inicial.
+EXIT - Exit the program:
 
-EXIT - Sair do programa:
-
-Para finalizar o programa, basta estar no menu inicial e digitar com letras maiúsculas "EXIT", e logo
-em seguida confirmar com "s". Caso se arrependa e desista de fechar a programa, basta digitar "n" na
-hora da confirmação. Esta opção não está visível por questões de segurança, pois uma vez que o programa
-é fechado todos os dados serão perdidos.
+To exit the program, simply be at the main menu and type "EXIT" in uppercase letters, then confirm with "s". If you change your mind and decide not to close the program, just type "n" during the confirmation. This option is not visible for security reasons, as once the program is closed, all data will be lost.
