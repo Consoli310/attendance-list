@@ -1,5 +1,13 @@
 **É extremamente recomendado o uso de um terminal compatível com ANSI Escape Code**
 
+Resumo:
+
+Este programa é um sistema para controle de presença de um evento, podendo adicionar pessoas
+(sendo elas "pagantes" ou "não pagantes"), remover pessoas, ver lista completa, ver lista "não pagantes",
+e calcular um valor a ser pago em excedentes dado um número para o pacote da festa e o valor para cada
+pessoa excedida do pacote.
+
+
 Como usar:
 
 Ao iniciar o aplicativo, escolha uma opção entre os números 1 e 5, cada um
