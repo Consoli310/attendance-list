@@ -55,7 +55,7 @@ public class Main {
                         Functions.clearConsole();
                         System.out.println("Enter the names followed by enter (or 'exit'):");
                         String name = sc.nextLine();
-                        if (!Objects.equals(name, "exit")) {
+                        if (!Objects.equals(name, "exit") && !Objects.equals(name, "") && !Objects.equals(name, " ")) {
                             functions.addList(name);
                         } else {
                             break;

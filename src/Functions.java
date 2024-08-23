@@ -44,11 +44,8 @@ public class Functions {
 
 
     public void removeList(int position) {
-        for (String noPay : guestsList){
-            if (Objects.equals(noPay, getGuestsList(position))){
-                this.noPayList.remove(noPay);
-            }
-        }
+        String guestNoPayToRemove = getGuestsList(position);
+        this.noPayList.remove(guestNoPayToRemove);
         this.guestsList.remove(position);
     }
 
