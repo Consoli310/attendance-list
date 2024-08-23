@@ -52,12 +52,9 @@ public class Functions {
         this.guestsList.remove(position);
     }
 
-    public void noPayListAdd() {
-        for (String x : this.guestsList) {
-            if (x.contains("-")) {
-                this.noPayList.add(x);
-            }
-        }
+    public void noPayListAdd(String name) {
+        this.noPayList.add(name);
+
     }
     public boolean isSurplus(int guestPackage){
         if (guestsList.size() - noPayList.size()  > guestPackage){

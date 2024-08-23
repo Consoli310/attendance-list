@@ -60,8 +60,11 @@ public class Main {
                         } else {
                             break;
                         }
+                        if (name.contains("-")){
+                            functions.noPayListAdd(name);
+                        }
                     }
-                    functions.noPayListAdd();
+
                     Functions.clearConsole();
                     break;
 
@@ -158,7 +161,7 @@ public class Main {
                             try {
                                 double surplusValue = Double.parseDouble(entry);
                                 Functions.clearConsole();
-                                System.out.println("Total cost for excess guests: $" + functions.surplusCalc(guestPackage, surplusValue));
+                                System.out.println("Total cost for excess guests: $" + String.format("%.2f",functions.surplusCalc(guestPackage, surplusValue)));
                                 break;
                             } catch (NumberFormatException e) {
                                 Functions.clearConsole();
