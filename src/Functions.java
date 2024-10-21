@@ -1,24 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
-import java.util.Scanner;
 
 public class Functions {
-    Scanner sc = new Scanner(System.in);
     private String name;
     private List<String> guestsList = new ArrayList<>();
     private List<String> noPayList = new ArrayList<>();
 
     public void addList(String name) {
         guestsList.add(name);
-    }
-
-    public Scanner getSc() {
-        return sc;
-    }
-
-    public void setSc(Scanner sc) {
-        this.sc = sc;
     }
 
     public String getName() {
@@ -42,7 +31,6 @@ public class Functions {
         return noPayList;
     }
 
-
     public void removeList(int position) {
         String guestNoPayToRemove = getGuestsList(position);
         this.noPayList.remove(guestNoPayToRemove);
@@ -65,7 +53,7 @@ public class Functions {
         return (payersNumber() - guestPackage) * surplusValue;
     }
 
-    static void clearConsole() {
+    static void clearConsole() {                // Only works in ANSI Escape Code terminals
         System.out.print("\033[H\033[2J");
         System.out.flush();
     }
